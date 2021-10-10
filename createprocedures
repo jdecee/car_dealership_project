@@ -1,0 +1,37 @@
+CREATE OR REPLACE PROCEDURE update_tier_status()
+LANGUAGE plpgsql
+AS $$
+BEGIN 
+	UPDATE salesperson
+	SET tier = 'Tier 1'
+	WHERE sales_employee_id IN (
+		SELECT sales_employee_id
+		FROM car_invoice
+		GROUP BY sales_employee_id
+		HAVING COUNT(sales_employee_id) < 3
+	);
+END;
+$$
+
+-- Call the procedure aka execute
+CALL update_tier_status();
+
+CREATE OR REPLACE PROCEDURE update_payrate()
+LANGUAGE plpgsql
+AS $$
+BEGIN 
+	UPDATE mechanic
+	SET payrate = payrate + 1.00 -- increase mechanic payrate after working for more than 1 year
+	WHERE mechanic_id IN (
+		SELECT mechanic_id
+		FROM mechanic
+		GROUP BY mechanic_id
+		HAVING date_hired < current_date-365
+	);
+END;
+$$
+
+-- Call the procedure aka execute
+CALL update_payrate();
+
+

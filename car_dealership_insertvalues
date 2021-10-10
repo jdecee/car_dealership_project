@@ -1,0 +1,182 @@
+INSERT INTO mechanic (
+	first_name,
+	last_name,
+	employee_email
+)
+VALUES(
+	'Jon',
+	'Dicianni',
+	'jdecee@gmail.com'
+);
+
+INSERT INTO mechanic (
+	first_name,
+	last_name,
+	employee_email
+)
+VALUES(
+	'Tommy',
+	'Guns',
+	'tguns@gmail.com'
+);
+
+INSERT INTO mechanic (
+	first_name,
+	last_name,
+	employee_email
+)
+VALUES(
+	'Marky',
+	'Marks',
+	'marks@gmail.com'
+);
+
+INSERT INTO car_service (
+	customer_id,
+	vin_number,
+	mechanic_id,
+	description,
+	payment_amount,
+	Date_serviced,
+	part_id,
+	quantity_used
+)
+VALUES(
+	1,
+	'12345678912345679',
+	1,
+	'flat tire',
+	'200.00',
+	'2001-09-28 01:00:00',
+	1,
+	1
+);
+
+UPDATE car_service
+SET customer_id = 2
+WHERE service_ticket = 1;
+
+SELECT *
+FROM mechanic
+
+INSERT INTO parts (
+	description,
+	price,
+	quantity
+)
+VALUES(
+	'wheels',
+	'200.00',
+	1
+);
+
+UPDATE parts
+SET part_name = 'Tire'
+WHERE part_id = 1;
+
+--customer 1
+
+INSERT INTO customers (
+	first_name,
+	last_name,
+	phone_number,
+	email_address,
+	vin_number
+)
+VALUES(
+	'Joe',
+	'Schmo',
+	'8932683465',
+	'joeschmo@gmail.com',
+	'12345678912345678'
+);
+
+--customer #2
+
+INSERT INTO customers (
+	first_name,
+	last_name,
+	phone_number,
+	email_address,
+	vin_number
+)
+VALUES(
+	'Joelene',
+	'Schmo',
+	'8932683461',
+	'joeleneschmo@gmail.com',
+	'12345678912345679'
+);
+
+INSERT INTO salesperson (
+	first_name,
+	last_name,
+	employee_email
+)
+VALUES(
+	'Jacked',
+	'UP',
+	'jackedu@jonsdealership'
+);
+
+INSERT INTO car_invoice (
+	sales_employee_id,
+	customer_id,
+	vin_number
+)
+VALUES(
+	1,
+	1,
+	'12345678912345679'
+);
+
+UPDATE car_invoice
+SET vin_number = '12345678912345678'
+WHERE invoice_id = 1;
+
+--car #1 - purchased
+
+INSERT INTO car_inventory(
+	vin_number,
+	year_,
+	make,
+	model,
+	miles,
+	used_or_new,
+	amount
+)
+VALUES(
+	'12345678912345678',
+	2021,
+	'Toyota',
+	'Tacoma',
+	25456,
+	'Used',
+	'20999.99'
+);
+
+--car #2 - serviced
+
+INSERT INTO car_inventory(
+	vin_number,
+	year_,
+	make,
+	model,
+	miles,
+	used_or_new,
+	amount
+)
+VALUES(
+	'12345678912345679',
+	2021,
+	'Toyota',
+	'Tundra',
+	18000,
+	'Used',
+	'20932.05'
+);
+
+SELECT *
+FROM car_invoice
+
+
